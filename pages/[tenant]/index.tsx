@@ -1,5 +1,6 @@
 import { InputSearch } from "../../components/InputSearch";
 import { Banner } from "../../components/Banner";
+import { ProductItem } from "../../components/ProductItem";
 
 import styles from "../../styles/Home.module.css";
 
@@ -26,6 +27,12 @@ export default function Home() {
       </header>
 
       <Banner />
+
+      <div className={styles.grid}>
+        <ProductItem />
+        <ProductItem />
+        <ProductItem />
+      </div>
     </div>
   );
 }
