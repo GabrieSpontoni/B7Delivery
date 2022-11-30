@@ -1,18 +1,35 @@
+import Link from "next/link";
+import { Product } from "../../types";
 import styles from "./styles.module.css";
 
-export function ProductItem() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.header} />
+type Props = {
+  data: Product;
+  mainColor: string;
+  secondaryColor: string;
+};
 
-      <div className={styles.body}>
-        <div className={styles.image}>
-          <img src="/temp/burger.png" alt="" />
+export function ProductItem({ data, mainColor, secondaryColor }: Props) {
+  return (
+    <Link href={`/b7burger/product/${data.id}`} className={styles.link}>
+      <div className={styles.container}>
+        <div
+          className={styles.header}
+          style={{
+            backgroundColor: secondaryColor,
+          }}
+        />
+
+        <div className={styles.body}>
+          <div className={styles.image}>
+            <img src={data.image} alt="" />
+          </div>
+          <div className={styles.category}>{data.category}</div>
+          <div className={styles.title}>{data.title}</div>
+          <div className={styles.price} style={{ color: mainColor }}>
+            {data.price}
+          </div>
         </div>
-        <div className={styles.category}>Tradicional</div>
-        <div className={styles.title}>Monster Burger</div>
-        <div className={styles.price}>R$ 19,90</div>
       </div>
-    </div>
+    </Link>
   );
 }

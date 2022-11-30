@@ -29,9 +29,28 @@ export default function Home() {
       <Banner />
 
       <div className={styles.grid}>
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        <ProductItem
+          data={{
+            id: 1,
+            image: "/temp/burger.png",
+            category: "Tradicional",
+            title: "Monster Burger",
+            price: "R$ 19,90",
+          }}
+          mainColor="#FB9400"
+          secondaryColor="blue"
+        />
+        <ProductItem
+          data={{
+            id: 2,
+            image: "/temp/burger.png",
+            category: "Monstro",
+            title: "Light Burger",
+            price: "R$ 139,90",
+          }}
+          mainColor="#FB9400"
+          secondaryColor="blue"
+        />
       </div>
     </div>
   );

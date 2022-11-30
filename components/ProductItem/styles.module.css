@@ -1,17 +1,18 @@
+.link {
+  text-decoration: none;
+}
+
 .container {
-  background: #ce1b1b;
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   overflow: hidden;
 }
 
 .header {
-  background-color: #606460;
   height: 90px;
 }
 
 .body {
-  background-color: #ffffff;
   padding: 13px;
 }
 
@@ -39,5 +40,4 @@
 .body .price {
   font-size: 15px;
   font-weight: 600;
-  color: #fb9400;
 }
