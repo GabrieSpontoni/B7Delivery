@@ -1,3 +1,7 @@
+import { GetServerSideProps } from "next";
+
+import { UseApi } from "../../hooks/useApi";
+
 import { InputSearch } from "../../components/InputSearch";
 import { Banner } from "../../components/Banner";
 import { ProductItem } from "../../components/ProductItem";
@@ -55,3 +59,24 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { tenant: tenantSlug } = context.query;
+  const api = UseApi();
+
+  const tenant = await api.getTenant(tenantSlug as string);
+  if (!tenant) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      tenant,
+    },
+  };
+};
