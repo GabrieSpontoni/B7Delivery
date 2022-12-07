@@ -12,6 +12,9 @@
   width: 48px;
   background-color: #f9f9fb;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input {

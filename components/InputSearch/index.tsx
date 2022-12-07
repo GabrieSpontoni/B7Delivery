@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import SearchIcon from "./SearchIcon";
 import styles from "./styles.module.css";
 
 type Props = {
@@ -15,7 +16,9 @@ export function InputSearch({ mainColor }: Props) {
         borderColor: focused ? mainColor : "#fff",
       }}
     >
-      <div className={styles.button}></div>
+      <div className={styles.button}>
+        <SearchIcon color={mainColor} />
+      </div>
       <input
         className={styles.input}
         placeholder="Pesquisar produto"

@@ -10,14 +10,14 @@ export const UseApi = () => ({
       case "b7Burger":
         return {
           name: "B7 Burger",
-          mainColor: "#F2C94C",
-          secondaryColor: "#F2994A",
+          mainColor: "#e319dc",
+          secondaryColor: "#19e320",
         };
       case "b7Pizza":
         return {
           name: "B7 Pizza",
-          mainColor: "#F2C94C",
-          secondaryColor: "#F2994A",
+          mainColor: "#e80e0e",
+          secondaryColor: "#e6c005",
         };
       default:
         return false;
