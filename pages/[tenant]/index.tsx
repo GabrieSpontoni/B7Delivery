@@ -1,14 +1,24 @@
 import { GetServerSideProps } from "next";
 
-import { getTenantResponse, UseApi } from "../../hooks/useApi";
+import { useAppContext } from "../../contexts/AppContext";
+
+import { UseApi } from "../../hooks/useApi";
 
 import { InputSearch } from "../../components/InputSearch";
 import { Banner } from "../../components/Banner";
 import { ProductItem } from "../../components/ProductItem";
 
+import { Tenant } from "../../types/Tenant";
 import styles from "../../styles/Home.module.css";
+import { useEffect } from "react";
 
 export default function Home(data: Props) {
+  const { tenant, setTenant } = useAppContext();
+
+  useEffect(() => {
+    setTenant(data.tenant);
+  }, []);
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -22,19 +32,19 @@ export default function Home(data: Props) {
               <div
                 className={styles.headerMenuButtonLine}
                 style={{
-                  backgroundColor: data.tenant.mainColor,
+                  backgroundColor: tenant?.mainColor,
                 }}
               />
               <div
                 className={styles.headerMenuButtonLine}
                 style={{
-                  backgroundColor: data.tenant.mainColor,
+                  backgroundColor: tenant?.mainColor,
                 }}
               />
               <div
                 className={styles.headerMenuButtonLine}
                 style={{
-                  backgroundColor: data.tenant.mainColor,
+                  backgroundColor: tenant?.mainColor,
                 }}
               />
             </div>
@@ -76,7 +86,7 @@ export default function Home(data: Props) {
 }
 
 type Props = {
-  tenant: getTenantResponse;
+  tenant: Tenant;
 };
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { tenant: tenantSlug } = context.query;

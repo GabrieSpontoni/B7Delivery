@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Product } from "../../types";
+import { useAppContext } from "../../contexts/AppContext";
+import { Product } from "../../types/Product";
 import styles from "./styles.module.css";
 
 type Props = {
