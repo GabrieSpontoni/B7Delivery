@@ -5,18 +5,17 @@ import styles from "./styles.module.css";
 
 type Props = {
   data: Product;
-  mainColor: string;
-  secondaryColor: string;
 };
 
-export function ProductItem({ data, mainColor, secondaryColor }: Props) {
+export function ProductItem({ data }: Props) {
+  const { tenant } = useAppContext();
   return (
-    <Link href={`/b7burger/product/${data.id}`} className={styles.link}>
+    <Link href={`/${tenant?.slug}/product/${data.id}`} className={styles.link}>
       <div className={styles.container}>
         <div
           className={styles.header}
           style={{
-            backgroundColor: secondaryColor,
+            backgroundColor: tenant?.secondaryColor,
           }}
         />
 
@@ -26,7 +25,7 @@ export function ProductItem({ data, mainColor, secondaryColor }: Props) {
           </div>
           <div className={styles.category}>{data.category}</div>
           <div className={styles.title}>{data.title}</div>
-          <div className={styles.price} style={{ color: mainColor }}>
+          <div className={styles.price} style={{ color: tenant?.mainColor }}>
             {data.price}
           </div>
         </div>

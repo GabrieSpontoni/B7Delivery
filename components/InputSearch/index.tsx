@@ -1,23 +1,24 @@
 import { useState } from "react";
+import { useAppContext } from "../../contexts/AppContext";
 
 import SearchIcon from "./SearchIcon";
 import styles from "./styles.module.css";
 
-type Props = {
-  mainColor: string;
-};
+type Props = {};
 
-export function InputSearch({ mainColor }: Props) {
+export function InputSearch({}: Props) {
+  const { tenant } = useAppContext();
   const [focused, setFocused] = useState(false);
+
   return (
     <div
       className={styles.container}
       style={{
-        borderColor: focused ? mainColor : "#fff",
+        borderColor: focused ? tenant?.mainColor : "#fff",
       }}
     >
       <div className={styles.button}>
-        <SearchIcon color={mainColor} />
+        <SearchIcon color={tenant?.mainColor} />
       </div>
       <input
         className={styles.input}

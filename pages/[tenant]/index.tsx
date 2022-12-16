@@ -51,7 +51,7 @@ export default function Home(data: Props) {
           </div>
         </div>
         <div className={styles.headerBottom}>
-          <InputSearch mainColor={data.tenant.mainColor} />
+          <InputSearch />
         </div>
       </header>
 
@@ -66,8 +66,6 @@ export default function Home(data: Props) {
             title: "Monster Burger",
             price: "R$ 19,90",
           }}
-          mainColor={data.tenant.mainColor}
-          secondaryColor={data.tenant.secondaryColor}
         />
         <ProductItem
           data={{
@@ -77,8 +75,6 @@ export default function Home(data: Props) {
             title: "Light Burger",
             price: "R$ 139,90",
           }}
-          mainColor={data.tenant.mainColor}
-          secondaryColor={data.tenant.secondaryColor}
         />
       </div>
     </div>
