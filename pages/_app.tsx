@@ -6,7 +6,7 @@ import { Compose } from "../utils/Compose";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Compose components={[AppContextProvider]}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </Compose>
   );
 }
