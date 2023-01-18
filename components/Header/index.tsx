@@ -1,16 +1,27 @@
+import Link from "next/link";
 import BackIcon from "./BackIcon";
 import styles from "./styles.module.css";
 
-type Props = {};
+type Props = {
+  backHref: string;
+  color: string;
+  title?: string;
+  subtitle?: string;
+};
 
-export function Header({}: Props) {
+export function Header({ backHref, color, title, subtitle }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.leftSide}>
-        <BackIcon />
+        <Link href={backHref}>
+          <BackIcon color={color} />
+        </Link>
       </div>
-      <div className={styles.centerSide}>center</div>
-      <div className={styles.rightSide}>right</div>
+      <div className={styles.centerSide}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{subtitle}</div>
+      </div>
+      <div className={styles.rightSide}></div>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import React from "react";
-
-function Icon() {
+function Icon(props: any) {
   return (
     <svg
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"

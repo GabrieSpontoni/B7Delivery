@@ -1,7 +1,6 @@
 .container {
   display: flex;
   height: 48px;
-  background-color: red;
 }
 
 .leftSide,
@@ -10,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
 }
 
 .centerSide {
@@ -19,5 +17,16 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: green;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #1b1b1b;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 13px;
+  color: #6a7d8b;
 }

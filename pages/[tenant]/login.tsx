@@ -22,7 +22,10 @@ export default function Login(data: Props) {
       <Head>
         <title>{tenant?.name} - Login</title>
       </Head>
-      <Header />
+      <Header
+        backHref={`/${tenant?.slug}`}
+        color={tenant?.mainColor as string}
+      />
     </div>
   );
 }
