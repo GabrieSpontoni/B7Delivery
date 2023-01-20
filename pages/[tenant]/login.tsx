@@ -1,17 +1,21 @@
 import { GetServerSideProps } from "next";
+import { useEffect, useState } from "react";
+import Head from "next/head";
 
 import { useAppContext } from "../../contexts/AppContext";
 
 import { UseApi } from "../../hooks/useApi";
 
 import { Tenant } from "../../types/Tenant";
-import styles from "../../styles/Login.module.css";
-import { useEffect } from "react";
-import Head from "next/head";
+
 import { Header } from "../../components/Header";
+import { InputField } from "../../components/InputField";
+
+import styles from "../../styles/Login.module.css";
 
 export default function Login(data: Props) {
   const { tenant, setTenant } = useAppContext();
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     setTenant(data.tenant);
@@ -25,6 +29,13 @@ export default function Login(data: Props) {
       <Header
         backHref={`/${tenant?.slug}`}
         color={tenant?.mainColor as string}
+      />
+      <InputField
+        color={tenant?.mainColor as string}
+        placeholder="Digite seu email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        password={false}
       />
     </div>
   );
